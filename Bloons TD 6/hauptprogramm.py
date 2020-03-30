@@ -28,7 +28,7 @@ while laufend:
                 Punkt(maus_pos), alle_knoepfe, False
             )
             if geklickte_knoepfe:
-                breakpoint()
+                # breakpoint()
                 print(geklickte_knoepfe[0].gehe_zu_bildschirm)
                 neuer_bildschirm(geklickte_knoepfe[0].gehe_zu_bildschirm)
             else:
