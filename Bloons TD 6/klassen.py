@@ -4,6 +4,7 @@ from konfigurationen import *
 
 alle_figuren = pygame.sprite.Group()
 alle_knoepfe = pygame.sprite.Group()
+alle_bilder = pygame.sprite.Group()
 
 spiel_ordner = path.dirname(__file__)
 bilder_ordner = path.join(spiel_ordner, "Bilder")
@@ -13,12 +14,30 @@ class Knopf(pygame.sprite.Sprite):
     def __init__(self, konfiguration):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load(path.join(extras_ordner, konfiguration["datei"])).convert()
-        self.image.set_colorkey(konfiguration["colorkey"])
         self.rect = self.image.get_rect()
         self.rect.topleft = konfiguration["position"]
-        self.aktion = konfiguration["aktion"]
+        if "groesse" in konfiguration.keys():
+            self.image = pygame.transform.scale(self.image, konfiguration["groesse"])
+        if "colorkey" in konfiguration.keys():
+            self.image.set_colorkey(konfiguration["colorkey"])
+        # self.aktion = konfiguration["aktion"]
+        self.gehe_zu_bildschirm = konfiguration["gehe zu bildschirm"]
         alle_figuren.add(self)
         alle_knoepfe.add(self)
+
+
+class Bild(pygame.sprite.Sprite):
+    def __init__(self, konfiguration):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.image.load(path.join(extras_ordner, konfiguration["datei"])).convert()
+        self.rect = self.image.get_rect()
+        self.rect.topleft = konfiguration["position"]
+        if "groesse" in konfiguration.keys():
+            self.image = pygame.transform.scale(self.image, konfiguration["groesse"])
+        if "colorkey" in konfiguration.keys():
+            self.image.set_colorkey(konfiguration["colorkey"])
+        alle_figuren.add(self)
+        alle_bilder.add(self)
 
 
 class Charakter(pygame.sprite.Sprite):
@@ -47,6 +66,6 @@ class Pop(pygame.sprite.Sprite):
 
 
 class Punkt(pygame.sprite.Sprite):
-    def __init__(self, x, y):
+    def __init__(self, position):
         pygame.sprite.Sprite.__init__(self)
-        self.rect = pygame.Rect(x, y, x + 1, y + 1)
+        self.rect = pygame.Rect(position, (1, 1))

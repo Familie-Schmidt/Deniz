@@ -5,16 +5,15 @@ bildschirm = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 pygame.display.set_caption("Bloons TD 6")
 uhr = pygame.time.Clock()
 
-startbildschirm = pygame.image.load(path.join(extras_ordner, "start.jpg")).convert()
+def neuer_bildschirm(bildschirmart):
+    alle_figuren.empty()
+    for bild in bild_konfiguration[bildschirmart]:
+        Bild(bild)
+    for knopf in knopf_konfiguration[bildschirmart]:
+        Knopf(knopf)
 
-hintergrund = startbildschirm
-
-for knopf in knopf_konfiguration["startbildschirm"]:
-    Knopf(knopf)
-
-
-allstart = pygame.image.load(path.join(extras_ordner, "AllstartBTD6.png")).convert()
-
+neuer_bildschirm("startbildschirm")
+breakpoint()
 
 # Game Loop
 laufend = True
@@ -25,26 +24,26 @@ while laufend:
 
     for ereignis in pygame.event.get():
         if ereignis.type == pygame.MOUSEBUTTONDOWN:
-            # breakpoint()
             maus_pos = pygame.mouse.get_pos()
-            print(maus_pos)
             geklickte_knoepfe = pygame.sprite.spritecollide(
-                Punkt(maus_pos[0], maus_pos[1]), alle_knoepfe, False
+                Punkt(maus_pos), alle_knoepfe, False
             )
-            print(geklickte_knoepfe[0].aktion)
-            if geklickte_knoepfe[0].aktion == "Gehe zu Hauptmenue":
-                hintergrund = allstart
+            if geklickte_knoepfe:
+                # print(geklickte_knoepfe[0].gehe_zu_bildschirm)
+                neuer_bildschirm(geklickte_knoepfe[0].gehe_zu_bildschirm)
+            else:
+                print("Kein Knopf gedrückt")
 
         # für Fenster schließen checken
         if ereignis.type == pygame.QUIT:
             laufend = False
+
     # Für Bildschirmanzeige vorbereiten
     alle_figuren.update()
+
     # Malen
     bildschirm.fill(SCHWARZ)
-    bildschirm.blit(hintergrund, (0, 0))
     alle_figuren.draw(bildschirm)
-    # Bildschirm umdrehen
     pygame.display.flip()
 
 
