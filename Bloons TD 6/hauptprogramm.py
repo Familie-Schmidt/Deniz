@@ -13,7 +13,6 @@ def neuer_bildschirm(bildschirmart):
         Knopf(knopf)
 
 neuer_bildschirm("startbildschirm")
-breakpoint()
 
 # Game Loop
 laufend = True
@@ -29,7 +28,8 @@ while laufend:
                 Punkt(maus_pos), alle_knoepfe, False
             )
             if geklickte_knoepfe:
-                # print(geklickte_knoepfe[0].gehe_zu_bildschirm)
+                breakpoint()
+                print(geklickte_knoepfe[0].gehe_zu_bildschirm)
                 neuer_bildschirm(geklickte_knoepfe[0].gehe_zu_bildschirm)
             else:
                 print("Kein Knopf gedrückt")
