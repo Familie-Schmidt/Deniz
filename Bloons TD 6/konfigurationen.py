@@ -22,9 +22,19 @@ knopf_konfiguration = {
     "hauptmenue": [
         {
             "datei": "play auf hauptmenue.png",
-            "colorkey": WEISS,
-            "position": (760, 910),
+            # "colorkey": WEISS,
+            "position": (814, 791),
+            "groesse": (1112 - 814, 1079 - 786),
             "gehe zu bildschirm": "maps"
+        }
+    ],
+    "maps": [
+        {
+            "datei": "TownCenter.png",
+            "position": (276, 223),
+            "groesse": (400, 274),
+            "gehe zu bildschirm": "spiel"
+
         }
     ]
 }
@@ -38,6 +48,14 @@ bild_konfiguration = {
     "hauptmenue": [
         {
             "datei": "AllstartBTD6.png",
+            "position": (0, 0),
+            "groesse": (BREITE, HOEHE),
+        }
+    ],
+
+    "maps": [
+        {
+            "datei": "mapshintergrund.png",
             "position": (0, 0),
             "groesse": (BREITE, HOEHE),
         }

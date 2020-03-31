@@ -24,9 +24,8 @@ while laufend:
     for ereignis in pygame.event.get():
         if ereignis.type == pygame.MOUSEBUTTONDOWN:
             maus_pos = pygame.mouse.get_pos()
-            geklickte_knoepfe = pygame.sprite.spritecollide(
-                Punkt(maus_pos), alle_knoepfe, False
-            )
+            print(maus_pos)
+            geklickte_knoepfe = pygame.sprite.spritecollide(Punkt(maus_pos), alle_knoepfe, False)
             if geklickte_knoepfe:
                 # breakpoint()
                 print(geklickte_knoepfe[0].gehe_zu_bildschirm)
