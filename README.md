@@ -1,4 +1,4 @@
 # Deniz
 Deniz edit
 
-Test von Papas Computer
+Test von Deniz Computer
