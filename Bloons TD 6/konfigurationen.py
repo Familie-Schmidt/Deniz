@@ -31,12 +31,48 @@ knopf_konfiguration = {
     "maps": [
         {
             "datei": "TownCenter.png",
-            "position": (276, 223),
+            "position": (157, 223),
+            "groesse": (400, 274),
+            "gehe zu bildschirm": "spiel"
+
+        },
+        {
+            "datei": "TreeStump.png",
+            "position": (757, 223),
+            "groesse": (400, 274),
+            "gehe zu bildschirm": "spiel"
+
+        },
+        {
+            "datei": "Monkey_Meadow_Halloween_2018.png",
+            "position": (1357, 223),
+            "groesse": (400, 274),
+            "gehe zu bildschirm": "spiel"
+
+        },
+        {
+            "datei": "Carved.png",
+            "position": (157, 623),
+            "groesse": (400, 274),
+            "gehe zu bildschirm": "spiel"
+
+        },
+        {
+            "datei": "Winter_Park.png",
+            "position": (757, 623),
+            "groesse": (400, 274),
+            "gehe zu bildschirm": "spiel"
+
+        },
+        {
+            "datei": "Frozen_Over.png",
+            "position": (1357, 623),
             "groesse": (400, 274),
             "gehe zu bildschirm": "spiel"
 
         }
-    ]
+    ],
+    "spiel": []
 }
 bild_konfiguration = {
     "startbildschirm": [
@@ -52,10 +88,16 @@ bild_konfiguration = {
             "groesse": (BREITE, HOEHE),
         }
     ],
-
     "maps": [
         {
             "datei": "mapshintergrund.png",
+            "position": (0, 0),
+            "groesse": (BREITE, HOEHE),
+        }
+    ],
+    "spiel": [
+        {
+            "datei": "Frozen_Over.png",
             "position": (0, 0),
             "groesse": (BREITE, HOEHE),
         }
