@@ -97,9 +97,20 @@ bild_konfiguration = {
     ],
     "spiel": [
         {
-            "datei": "Frozen_Over.png",
+            "datei": "Carved.png",
             "position": (0, 0),
-            "groesse": (BREITE, HOEHE),
+            "groesse": (BREITE - 250, HOEHE),
         }
     ]
+}
+
+pfad_konfiguration = {
+    "Carved.png": {
+        "startposition": (777, 0),
+        "pfad_segmente": [
+            {"startrichtung_grad": 270, "kurve": "gerade", "distanz_px": 55},
+            {"startrichtung_grad": 270, "kurve": "rechts", "distanz_px": 82, "kreis_umfang_px": 360},
+            {"startrichtung_grad": 195, "kurve": "gerade", "distanz_px": 40 * 5.5},
+        ]
+    }
 }

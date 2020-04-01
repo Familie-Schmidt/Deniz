@@ -30,6 +30,8 @@ while laufend:
                 # breakpoint()
                 print(geklickte_knoepfe[0].gehe_zu_bildschirm)
                 neuer_bildschirm(geklickte_knoepfe[0].gehe_zu_bildschirm)
+                if geklickte_knoepfe[0].gehe_zu_bildschirm == "spiel":
+                    Bloon(pfad_konfiguration["Carved.png"])
             else:
                 print("Kein Knopf gedrückt")
 
