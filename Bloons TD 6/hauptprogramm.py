@@ -1,3 +1,4 @@
+import random
 from klassen import *
 
 pygame.init()
@@ -12,13 +13,16 @@ def neuer_bildschirm(bildschirmart):
     for knopf in knopf_konfiguration[bildschirmart]:
         Knopf(knopf)
 
-neuer_bildschirm("startbildschirm")
+# neuer_bildschirm("maps")
+neuer_bildschirm("spiel")
 
 # Game Loop
 laufend = True
 while laufend:
     # Warten bis diese Schleife anfangen soll
     uhr.tick(FPS)
+    if random.random() < 0.01:
+        Bloon(pfad_konfiguration["Carved.png"])
     # Checken ob irgendjemand eine Taste gedrückt hat
 
     for ereignis in pygame.event.get():
@@ -30,8 +34,8 @@ while laufend:
                 # breakpoint()
                 print(geklickte_knoepfe[0].gehe_zu_bildschirm)
                 neuer_bildschirm(geklickte_knoepfe[0].gehe_zu_bildschirm)
-                if geklickte_knoepfe[0].gehe_zu_bildschirm == "spiel":
-                    Bloon(pfad_konfiguration["Carved.png"])
+                # if geklickte_knoepfe[0].gehe_zu_bildschirm == "spiel":
+                #     Bloon(pfad_konfiguration["Carved.png"])
             else:
                 print("Kein Knopf gedrückt")
 
