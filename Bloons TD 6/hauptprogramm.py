@@ -1,8 +1,10 @@
 import random
 from klassen import *
+import os
 
 pygame.init()
-bildschirm = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+os.environ['SDL_VIDEO_WINDOW_POS'] = "0,0"
+bildschirm = pygame.display.set_mode((0,0), pygame.RESIZABLE)
 pygame.display.set_caption("Bloons TD 6")
 uhr = pygame.time.Clock()
 
@@ -27,11 +29,12 @@ while laufend:
 
     for ereignis in pygame.event.get():
         if ereignis.type == pygame.MOUSEBUTTONDOWN:
+            breakpoint()
+            # debuggen()
             maus_pos = pygame.mouse.get_pos()
             print(maus_pos)
             geklickte_knoepfe = pygame.sprite.spritecollide(Punkt(maus_pos), alle_knoepfe, False)
             if geklickte_knoepfe:
-                # breakpoint()
                 print(geklickte_knoepfe[0].gehe_zu_bildschirm)
                 neuer_bildschirm(geklickte_knoepfe[0].gehe_zu_bildschirm)
                 # if geklickte_knoepfe[0].gehe_zu_bildschirm == "spiel":
@@ -50,6 +53,5 @@ while laufend:
     bildschirm.fill(SCHWARZ)
     alle_figuren.draw(bildschirm)
     pygame.display.flip()
-
 
 pygame.quit()
